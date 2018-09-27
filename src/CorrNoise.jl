@@ -1,5 +1,7 @@
 module CorrNoise
 
+using Random
+
 export Flat128RNG, initflatrng128, GaussRNG, Oof2RNG, OofRNG, randoof2, randoof
 
 const scalefactor = 1 / (1 + 0xFFFFFFFF)
@@ -14,7 +16,7 @@ function twiddle(var::UInt32)
     var
 end
 
-doc"""
+"""
     Flat128RNG
 
 State of the base-128 uniform random generator. Initialize this using the
@@ -76,7 +78,7 @@ mutable struct GaussRNG
     gset
 end
 
-doc"""
+"""
     GaussRNG(flatrng::AbstractRNG)
     GaussRNG(seed=0)
 
@@ -121,7 +123,7 @@ mutable struct Oof2RNG
     y1::Float64
 end
 
-doc"""
+"""
     Oof2RNG(normrng, fmin, fknee, fsample)
 
 Create a `Oof2RNG` RNG object. It requires a gaussian RNG generator in `normrng` (use `GaussRNG`),
@@ -154,7 +156,7 @@ function oof2filter(rng::Oof2RNG, x2::Float64)
     y2
 end
 
-doc"""
+"""
     randoof2(rng::Oof2RNG)
 
 Draw a random sample from a 1/f^2 distribution.
@@ -184,7 +186,7 @@ end
 const OOF2STATESIZE = 5
 oofstatesize(fmin::Number, fknee::Number, fsample::Number) = OOF2STATESIZE * numofpoles(fmin, fknee, fsample)
 
-doc"""
+"""
     OofRNG(normrng, fmin, fknee, fsample)
 
 Create a `OofRNG` RNG object. It requires a gaussian RNG generator in `normrng`
@@ -207,7 +209,7 @@ function OofRNG(normrng, slope::Number, fmin::Number, fknee::Number, fsample::Nu
     p = wmin + (1 - a / 2) * dp / 2
     z = p + a * dp / 2
     
-    oof2states = Array{Oof2RNG}(nproc)
+    oof2states = Array{Oof2RNG}(undef, nproc)
     for i = 1:nproc
         oof2states[i] = Oof2RNG(normrng, 10^p / (2π), 10^z / (2π), fsample)
         
@@ -218,7 +220,7 @@ function OofRNG(normrng, slope::Number, fmin::Number, fknee::Number, fsample::Nu
     OofRNG(normrng, slope, fmin, fknee, fsample, oof2states)
 end
 
-doc"""
+"""
     randoof(rng::OofRNG)
 
 Draw a random sample from a 1/f^α distribution.

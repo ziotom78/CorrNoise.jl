@@ -1,5 +1,5 @@
 using CorrNoise
-using Base.Test
+using Test
 
 # RNG tests
 
