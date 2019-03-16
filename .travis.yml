@@ -20,6 +20,7 @@ matrix:
   allow_failures:
   - julia: nightly
 
+coveralls: true
 
 jobs:
   include:
