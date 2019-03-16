@@ -6,9 +6,10 @@ end
 
 # CorrNoise User's Manual
 
-An implementation of a simulation/data analysis pipeline for the LSPE/STRIP instrument.
+CorrNoise provides a number of pseudo-random number generators.
 
 To install CorrNoise, start Julia and type the following command:
+
 ```julia
 Pkg.clone("https://github.com/lspestrip/CorrNoise")
 ```
@@ -23,6 +24,7 @@ Pkg.test("CorrNoise")
 The documentation was built using [Documenter.jl](https://github.com/JuliaDocs).
 
 ```@example
+using Dates # hide
 println("Documentation built $(now()) with Julia $(VERSION).") # hide
 ```
 
