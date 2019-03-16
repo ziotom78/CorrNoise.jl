@@ -1,7 +1,7 @@
 # CorrNoise
 
 [![Build Status](https://travis-ci.org/ziotom78/CorrNoise.jl.svg?branch=master)](https://travis-ci.org/ziotom78/CorrNoise.jl)
-[![Coverage Status](https://coveralls.io/repos/ziotom78/CorrNoise.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/ziotom78/CorrNoise.jl?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/ziotom78/CorrNoise.jl/badge.svg?branch=master)](https://coveralls.io/github/ziotom78/CorrNoise.jl?branch=master)
 [![](https://img.shields.io/badge/docs-latest-blue.svg)](https://ziotom78.github.io/CorrNoise.jl/latest)
 
 CorrNoise.jl is a Julia package to produce streams of correlated
