@@ -93,7 +93,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Manual",
     "title": "CorrNoise.OofRNG",
     "category": "type",
-    "text": "OofRNG(normrng, fmin, fknee, fsample)\n\nCreate a OofRNG RNG object. It requires a gaussian RNG generator in normrng (use GaussRNG), the slope α of the noise in slope, the minimum frequency (longest period) in fmin, the knee frequency and the sampling frequency. The measure unit of the three frequencies must be the same (e.g., Hz).\n\nUse randoof to draw samples from a OofRNG object, as in the following example:\n\nrng = OofRNG(GaussRNG(), 1.5, 1e-3, 1.0, 1e2)\nprint([randoof(rng) for i in 1:4])\n\n\n\n\n\n"
+    "text": "OofRNG(normrng, slope, fmin, fknee, fsample)\n\nCreate a OofRNG RNG object. It requires a gaussian RNG generator in normrng (use GaussRNG), the slope α of the noise in slope, the minimum frequency (longest period) in fmin, the knee frequency and the sampling frequency. The measure unit of the three frequencies must be the same (e.g., Hz).\n\nUse randoof to draw samples from a OofRNG object, as in the following example:\n\nrng = OofRNG(GaussRNG(), -1.5, 1e-3, 1.0, 1e2)\nprint([randoof(rng) for i in 1:4])\n\n\n\n\n\n"
 },
 
 {
