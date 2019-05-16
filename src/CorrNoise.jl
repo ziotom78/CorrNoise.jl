@@ -187,7 +187,7 @@ const OOF2STATESIZE = 5
 oofstatesize(fmin::Number, fknee::Number, fsample::Number) = OOF2STATESIZE * numofpoles(fmin, fknee, fsample)
 
 """
-    OofRNG(normrng, fmin, fknee, fsample)
+    OofRNG(normrng, slope, fmin, fknee, fsample)
 
 Create a `OofRNG` RNG object. It requires a gaussian RNG generator in `normrng`
 (use `GaussRNG`), the slope α of the noise in `slope`, the minimum frequency
@@ -196,7 +196,7 @@ measure unit of the three frequencies must be the same (e.g., Hz).
 
 Use `randoof` to draw samples from a `OofRNG` object, as in the following example:
 ```
-rng = OofRNG(GaussRNG(), 1.5, 1e-3, 1.0, 1e2)
+rng = OofRNG(GaussRNG(), -1.5, 1e-3, 1.0, 1e2)
 print([randoof(rng) for i in 1:4])
 ```
 """
